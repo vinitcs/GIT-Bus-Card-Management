@@ -1,0 +1,152 @@
+.loginContainer {
+     /* background-color: cadetblue; */
+     width: 100%;
+     height: max-content;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     padding: 1rem;
+     /* margin-top: 2rem; */
+
+
+
+     form {
+          width: 35%;
+          display: flex;
+          flex-direction: column;
+          /* gap: 30px; */
+          margin-top: 4rem;
+          margin-bottom: 6rem;
+          /* background-color: var(--tint-color); */
+          padding: 1.6rem;
+          border: 1px solid var(--tint-color);
+          border-radius: 12px;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          position: relative;
+
+          .closeIcon {
+               /* background-color: #00ffff; */
+               padding: 0;
+               width: max-content;
+               height: 0;
+               position: absolute;
+               top: 1rem;
+               right: 1rem;
+               margin-bottom: 2rem;
+               /* cursor: pointer; */
+          }
+
+
+          h1 {
+               text-align: center;
+               font-size: 2.6rem;
+               padding: 1rem 0;
+          }
+
+
+          p {
+               text-align: center;
+               font-size: 0.8rem;
+               font-weight: 700;
+               padding-bottom: 0.6rem;
+               color: var(--btn-color);
+          }
+
+          label {
+               font-size: 0.8rem;
+               font-weight: 600;
+          }
+
+          input {
+               width: 100%;
+               height: 2.4rem;
+               border-radius: 0.4rem;
+               padding-left: 0.6rem;
+               border: 1px solid var(--bg-color);
+               margin-bottom: 1.4rem;
+               font-size: 1rem;
+               background-color: var(--tint-color);
+               color: var(--dark-color);
+          }
+
+          input::placeholder {
+               font-size: 0.9rem;
+               color: var(--dark-color);
+          }
+
+
+          .passwordContainer {
+               /* background-color: aquamarine; */
+               position: relative;
+               width: 100%;
+               height: 2.4rem;
+               margin-bottom: 1.4rem;
+
+               .passwordContainer input {
+                    width: calc(100% - 2.4rem);
+                    padding-right: 2.4rem;
+               }
+
+               .eyeIcon {
+                    position: absolute;
+                    right: 0.8rem;
+                    top: 0.4rem;
+                    cursor: pointer;
+               }
+          }
+
+          .forgetPassword {
+               /* background-color: aqua; */
+               width: 100%;
+               height: max-content;
+               margin-bottom: 1rem;
+               position: relative;
+               top: -0.6rem;
+
+               a {
+                    font-size: 0.8rem;
+                    font-weight: 600;
+                    color: var(--grey-color);
+               }
+
+               a:hover {
+                    color: var(--btn-color);
+               }
+          }
+
+
+
+          button {
+               width: 100%;
+               border: none;
+               background-color: var(--helper-color);
+               color: var(--bg-color);
+               padding: 0.3rem 1rem;
+               font-size: 1.4rem;
+               border-radius: 0.6rem;
+               cursor: pointer;
+          }
+
+          button:hover {
+               background-color: var(--btn-color);
+          }
+
+          /* 
+          input[type='submit']:active {
+               transform: translateY(2px);
+               box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+          } */
+     }
+
+}
+
+
+@media (width<=480px) {
+     .loginContainer {
+
+          form {
+               width: 100%;
+          }
+     }
+}

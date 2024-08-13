@@ -1,0 +1,199 @@
+.navbarContainer {
+     /* background-color: beige; */
+     /* max-width: 140rem; */
+     width: 100%;
+     padding: 1rem;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     position: absolute;
+     z-index: 1;
+     /* background-color:rgba(248, 246, 246, 0.126);; */
+
+
+     .hamburgerMenu,
+     .closeMenu {
+          display: none;
+     }
+
+
+
+     .logoBrand {
+          /* background-color: aqua; */
+          display: flex;
+          align-items: center;
+
+
+          a {
+               color: var(--btn-color);
+               text-decoration: none;
+               font-weight: 600;
+          }
+     }
+
+     nav {
+
+          ul {
+               display: flex;
+               gap: 3rem;
+
+               li {
+                    list-style: none;
+                    text-decoration: none;
+                    color: var(--logout-color);
+                    cursor: pointer;
+
+                    a {
+                         text-decoration: none;
+                         color: var(--grey-color);
+                         cursor: pointer;
+                         font-weight: 600;
+
+                    }
+                    a:hover {
+                         text-decoration: none;
+                         color: var(--btn-color);
+                         cursor: pointer;
+
+                    }
+
+               }
+
+               /* .loginBtn{
+                    background-color: var(--bg-color);
+                    padding: 0 0.6rem;
+                    border-radius: 10px;
+               } */
+
+
+               /* a:hover{
+                    color: var(--bg-color);
+               } */
+
+
+               .adminDashboard a {
+                    color: var(--logout-color);
+               }
+               .adminDashboard a:hover {
+                    color: var(--logout-color);
+               }
+          }
+     }
+
+     &.openNavbarBackground {
+          background-color: var(--modal-color);
+          position: fixed;
+     }
+}
+
+@media (max-width:480px) {
+     .navbarContainer {
+          /* background-color: var(--htag1-color); */
+          width: 100%;
+          border-end-start-radius: 2rem;
+          border-end-end-radius: 2rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          position: absolute;
+          left: 0;
+          right: 0;
+          z-index: 1;
+
+          .hamburgerMenu {
+               display: block;
+               background-color: var(--tint-color);
+               padding: 0.4rem;
+               border-radius: 100%;
+               position: absolute;
+               right: 1rem;
+               z-index: 2;
+          }
+
+          .closeMenu {
+               display: block;
+               background-color: var(--tint-color);
+               padding: 0.4rem;
+               border-radius: 100%;
+               position: absolute;
+               right: 1rem;
+               z-index: 2;
+          }
+
+          .logoBrand {
+               /* background-color: aqua; */
+               width: 100%;
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+
+
+               a {
+                    font-size: 1.4rem;
+                    color: var(--btn-color);
+                    text-decoration: none;
+
+               }
+          }
+
+          nav {
+               margin-top: 2rem;
+               display: flex;
+               max-height: 0;
+               opacity: 0;
+               transition: max-height 0.12s ease-out, opacity 0.12s ease-out;
+
+               ul {
+                    /* background-color: var(--htag1-color); */
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 0.1rem;
+                    /* display: none; */
+
+                    li {
+                         /* background-color: aqua; */
+                         list-style: none;
+                         text-decoration: none;
+                         color: var(--logout-color);
+                         cursor: pointer;
+
+                         a {
+                              /* font-size: 1rem; */
+                              text-decoration: none;
+                              color: var(--btn-color);
+                              cursor: pointer;
+                              font-weight: 100;
+
+                         }
+
+                    }
+
+                    /* .loginBtn{
+                         background-color: var(--bg-color);
+                         padding: 0 0.6rem;
+                         border-radius: 10px;
+                    } */
+
+
+                    /* a:hover{
+                         color: var(--bg-color);
+                    } */
+
+
+                    .adminDashboard a {
+                         color: var(--logout-color);
+                    }
+               }
+
+               &.showNav {
+                    max-height: 380px;
+                    /* Adjust based on your content's height */
+                    opacity: 1;
+                    transition: max-height 0.5s ease-in, opacity 0.5s ease-in;
+               }
+               
+          }
+     }
+}

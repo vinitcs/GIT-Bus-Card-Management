@@ -1,0 +1,180 @@
+.container {
+     /* background-color: aquamarine; */
+     width: 100%;
+     height: max-content;
+     display: flex;
+     flex-direction: column;
+     gap: 2rem;
+     position: relative;
+
+
+     .welcomeContainer {
+          /* background-color: aquamarine; */
+          width: 100%;
+          height: 50rem;
+          position: relative;
+          /* top: -5rem; */
+          z-index: -1;
+          display: flex;
+          flex-direction: column;
+          /* margin-bottom: 2rem; */
+
+
+          .overlay {
+               position: absolute;
+               top: 0;
+               left: 0;
+               width: 100%;
+               height: 100%;
+               background-color: rgba(0, 0, 0, 0.96);
+               /* background-color: aqua; */
+
+          }
+
+          video {
+               width: 100%;
+               height: 100%;
+               object-fit: cover;
+          }
+
+
+          .welcomeDisplay {
+               /* background-color: blueviolet; */
+               position: absolute;
+               width: 100%;
+               height: 100%;
+               top: 0;
+               display: flex;
+               flex-direction: column;
+               justify-content: center;
+               align-items: center;
+
+
+               h1 {
+                    color: var(--htag1-color);
+                    font-size: 1.8rem;
+               }
+
+               h2 {
+                    color: var(--bg-color);
+                    font-size: 4rem;
+                    padding-top: 2rem;
+                    font-weight: bolder;
+               }
+
+               h3 {
+                    color: var(--btn-color);
+                    font-size: 3rem;
+                    letter-spacing: 1px;
+               }
+
+               p {
+                    color: var(--bg-color);
+                    font-size: 1.5rem;
+                    letter-spacing: 2px;
+               }
+          }
+
+          .scrollIcon {
+               /* background-color: aquamarine; */
+               width: 100%;
+               height: 2rem;
+               position: absolute;
+               bottom: 3rem;
+          }
+
+     }
+
+}
+
+@media (width<=480px) {
+     .container {
+
+          .welcomeContainer {
+               height: 30rem;
+
+               .welcomeDisplay {
+                    gap: 0.2rem;
+
+
+                    h1 {
+                         font-size: 1rem;
+                    }
+
+                    h2 {
+                         font-size: 1.6rem;
+                         padding-top: 1rem;
+                    }
+
+                    h3 {
+                         font-size: 1.2rem;
+                         letter-spacing: 2px;
+                    }
+
+                    p {
+                         padding: 0 4.2rem;
+                         font-size: 0.2px;
+                         text-wrap: wrap;
+                         text-align: center;
+                    }
+               }
+
+               .scrollIcon {
+                    /* background-color: aquamarine; */
+                    width: 100%;
+                    height: 1.6rem;
+                    position: absolute;
+                    /* justify-content: center; */
+                    bottom: 3rem;
+               }
+
+          }
+
+     }
+}
+
+@media (width<=420px) {
+     .container {
+
+          .welcomeContainer {
+               height: 30rem;
+
+               .welcomeDisplay {
+                    gap: 0.2rem;
+
+
+                    h1 {
+                         font-size: 1rem;
+                    }
+
+                    h2 {
+                         font-size: 1.4rem;
+                         padding-top: 1rem;
+                    }
+
+                    h3 {
+                         font-size: 1rem;
+                         letter-spacing: 2px;
+                    }
+
+                    p {
+                         padding: 0 4.2rem;
+                         font-size: 0.2px;
+                         text-wrap: wrap;
+                         text-align: center;
+                    }
+               }
+
+               .scrollIcon {
+                    /* background-color: aquamarine; */
+                    width: 100%;
+                    height: 1.6rem;
+                    position: absolute;
+                    /* justify-content: center; */
+                    bottom: 3rem;
+               }
+
+          }
+
+     }
+}
