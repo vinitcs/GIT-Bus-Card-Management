@@ -2,7 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import axios from "axios";
-
+import { BACKEND_URL } from "./constants/BackendUrl.js";
 
 import { Home } from "./pages/Home";
 import { Register } from "./pages/Register";
@@ -20,6 +20,7 @@ import { AdminLogin } from "./pages/Admin/AdminLogin";
 import { AdminProtectedRoute } from "./components/ProtectedRoutes/AdminProtectedRoute";
 import { DashBoard } from "./pages/Admin/DashBoard";
 import { adminExist, adminNotExist } from "./redux/features/adminSlice";
+import { BACKEND_URL } from "./constants/BackendUrl.js";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ function App() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const studentResponse = await axios.post('http://localhost:3000/api/v1/students/verify-token', {}, { withCredentials: true });
+        const studentResponse = await axios.post(`${BACKEND_URL}/api/v1/students/verify-token`, {}, { withCredentials: true });
         // console.log(studentResponse);
         const { student } = studentResponse.data;
         dispatch(studentExist(student));
@@ -39,7 +40,7 @@ function App() {
 
 
       try {
-        const adminResponse = await axios.post('http://localhost:3000/api/v1/admin/verifyadmintoken', {}, { withCredentials: true });
+        const adminResponse = await axios.post(`${BACKEND_URL}/api/v1/admin/verifyadmintoken`, {}, { withCredentials: true });
         const { admin } = adminResponse.data;
         dispatch(adminExist(admin))
       } catch (error) {

@@ -5,6 +5,8 @@ import { MdCancel } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from 'react-toastify';
+import { BACKEND_URL } from '../../constants/BackendUrl';
+
 
 export const Register = () => {
      const [createAccount, setCreateAccount] = useState(false);
@@ -110,7 +112,7 @@ export const Register = () => {
 
           setCreateAccount(true)
           try {
-               const response = await axios.post('http://localhost:3000/api/v1/students/register', formData);
+               const response = await axios.post(`${BACKEND_URL}/api/v1/students/register`, formData);
                // console.log(response);
                toast.success(response.data.message);
                navigate('/');

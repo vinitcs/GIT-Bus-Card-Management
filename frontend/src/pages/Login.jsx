@@ -7,6 +7,8 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { studentExist } from '../redux/features/studentSlice';
+import { BACKEND_URL } from '../../constants/BackendUrl';
+
 
 export const Login = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
@@ -34,7 +36,7 @@ export const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:3000/api/v1/students/login', formData, { withCredentials: true });
+            const response = await axios.post(`${BACKEND_URL}/api/v1/students/login`, formData, { withCredentials: true });
 
             const { student } = response.data;
 

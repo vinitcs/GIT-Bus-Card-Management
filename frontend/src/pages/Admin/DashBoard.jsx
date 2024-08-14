@@ -10,6 +10,7 @@ import { adminLogout } from "../../redux/features/adminSlice";
 import { setSelectedStudent, clearSelectedStudent } from "../../redux/features/studentDataSlice";
 import { Footer } from "../../components/Footer/Footer";
 import { IoIosClose } from "react-icons/io";
+import { BACKEND_URL } from "../../../constants/BackendUrl";
 
 
 const formatDateString = (dateString) => {
@@ -66,7 +67,7 @@ export const DashBoard = () => {
 
      const fetchAdminData = async () => {
           try {
-               const response = await axios.get('http://localhost:3000/api/v1/admin/loggedadmin', { withCredentials: true })
+               const response = await axios.get(`${BACKEND_URL}/api/v1/admin/loggedadmin`, { withCredentials: true })
                setAdminData(response.data.data)
           }
           catch (error) {
@@ -77,7 +78,7 @@ export const DashBoard = () => {
 
      const fetchStudentData = async () => {
           try {
-               const response = await axios.get('http://localhost:3000/api/v1/admin/listallstudentdata', {
+               const response = await axios.get(`${BACKEND_URL}/api/v1/admin/listallstudentdata`, {
                     withCredentials: true
                });
                if (response.data.data.length === 0) {
@@ -97,7 +98,7 @@ export const DashBoard = () => {
 
      const fetchFeatureStatus = async () => {
           try {
-               const response = await axios.get('http://localhost:3000/api/v1/admin/getallowstudentupdatefeaturestatus', {
+               const response = await axios.get(`${BACKEND_URL}/api/v1/admin/getallowstudentupdatefeaturestatus`, {
                     withCredentials: true,
                });
                setAllowStudentUpdateDetails(response.data.data.toggleStudentUpdateValue);
@@ -157,7 +158,7 @@ export const DashBoard = () => {
           toast.dismiss(idToast);
           try {
                const response = await axios.patch(
-                    'http://localhost:3000/api/v1/admin/allowstudentupdatedetails',
+                    `${BACKEND_URL}/api/v1/admin/allowstudentupdatedetails`,
                     { toggleStudentUpdateValue: !allowStudentUpdateDetails },
                     { withCredentials: true }
                );
@@ -183,7 +184,7 @@ export const DashBoard = () => {
           try {
                // Remove token or any login status identifier
 
-               const response = await axios.post('http://localhost:3000/api/v1/admin/logoutadmin', {}, { withCredentials: true });
+               const response = await axios.post(`${BACKEND_URL}/api/v1/admin/logoutadmin`, {}, { withCredentials: true });
                // console.log(response);
                dispatch(adminLogout());
                toast.success(response.data.message);
@@ -201,7 +202,7 @@ export const DashBoard = () => {
 
      const handleNextDueDate = async () => {
           try {
-               const response = await axios.patch('http://localhost:3000/api/v1/admin/nextduedateset', { nextDueDate }, { withCredentials: true });
+               const response = await axios.patch(`${BACKEND_URL}/api/v1/admin/nextduedateset`, { nextDueDate }, { withCredentials: true });
                toast.success(response.data.message);
                setNextDueDate('');
                fetchStudentData();
@@ -265,7 +266,7 @@ export const DashBoard = () => {
           setDeletingAccount(true);
           try {
                // console.log(id);
-               const response = await axios.delete(`http://localhost:3000/api/v1/admin/deletestudent/${id}`, { withCredentials: true });
+               const response = await axios.delete(`${BACKEND_URL}/api/v1/admin/deletestudent/${id}`, { withCredentials: true });
                toast.success(response.data.message);
                fetchStudentData();
           } catch (error) {
@@ -328,7 +329,7 @@ export const DashBoard = () => {
           setIsSendingReminder(true);
           try {
                // console.log(id);
-               const response = await axios.post('http://localhost:3000/api/v1/admin/feeremainder', {}, { withCredentials: true });
+               const response = await axios.post(`${BACKEND_URL}/api/v1/admin/feeremainder`, {}, { withCredentials: true });
                toast.success(response.data.message);
           } catch (error) {
                if (error.response && error.response.data) {

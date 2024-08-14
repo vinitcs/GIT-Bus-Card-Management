@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { adminExist } from "../../redux/features/adminSlice";
+import { BACKEND_URL } from "../../../constants/BackendUrl";
 
 
 export const AdminLogin = () => {
@@ -36,7 +37,7 @@ export const AdminLogin = () => {
           e.preventDefault();
 
           try {
-               const response = await axios.post('http://localhost:3000/api/v1/admin/adminlogin', formData, { withCredentials: true });
+               const response = await axios.post(`${BACKEND_URL}/api/v1/admin/adminlogin`, formData, { withCredentials: true });
 
                const { admin } = response.data;
 

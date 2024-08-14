@@ -3,6 +3,7 @@ import axios from 'axios';
 import styles from './StudentCardStyles.module.css';
 import { Loading } from '../Loading/Loading';
 import { useSelector } from 'react-redux';
+import { BACKEND_URL } from '../../../constants/BackendUrl';
 
 
 const formatDateString = (dateString) => {
@@ -26,7 +27,7 @@ export const StudentCard = () => {
           if (isLoggedIn) {
 
                // Fetch the current student data
-               axios.get('http://localhost:3000/api/v1/students/logged', { withCredentials: true })
+               axios.get(`${BACKEND_URL}/api/v1/students/logged`, { withCredentials: true })
                     .then((response) => {
                          setStudentData(response.data.data);
                     })

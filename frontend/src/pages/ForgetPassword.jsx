@@ -4,6 +4,8 @@ import { MdCancel } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { BACKEND_URL } from '../../constants/BackendUrl';
+
 
 export const ForgetPassword = () => {
   const navigate = useNavigate();
@@ -24,9 +26,9 @@ export const ForgetPassword = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3000/api/v1/students/forgetpassword', formData);
+      const response = await axios.post(`${BACKEND_URL}/api/v1/students/forgetpassword`, formData);
       // console.log(response);
-      
+
       toast.success(response.data.message);
       navigate('/');
 
