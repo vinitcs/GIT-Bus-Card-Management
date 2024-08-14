@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from "../styles/HomeStyles.module.css";
 import { PiMouseScroll } from "react-icons/pi";
-// import videoBg from "../assets/busvideo1.mp4";
-// import videoBg from "../assets/busvideo2.mp4"
+import videoBg from "../assets/busvideo1.webm"
 import { Navbar } from "../components/Navbar/Navbar";
 import { Footer } from "../components/Footer/Footer";
 import { StudentCard } from '../components/StudentCard/StudentCard';
@@ -11,10 +10,8 @@ import { BusInfo } from '../components/BusInfo/BusInfo';
 // import { Contact } from '../components/Contact/Contact';
 import { useSelector } from 'react-redux';
 
-// import axios from "axios";
-
 export const Home = () => {
-     const videoBg = "https://res.cloudinary.com/dbkvjtoul/video/upload/v1723129230/git-bms/busvideo1.mp4";
+     // const videoBg = "https://res.cloudinary.com/dbkvjtoul/video/upload/v1723129230/git-bms/busvideo1.mp4";
 
      let [isLoggedIn, setIsLoggedIn] = useState(false);
 

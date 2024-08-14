@@ -113,6 +113,26 @@ const registerStudent = asyncHandler(async (req, res) => {
     );
   }
 
+  const message = `
+  <h2>Dear ${createdStudent.studentName},</h2>
+  
+  <h3>Congratulations! You have successfully registered for your GIT Bus Card. We're thrilled to have you onboard and appreciate you taking the time to create an account with us.
+  <br/>
+  Thank you for joining the GIT Bus Card portal. Your journey with us starts here, and we're excited to provide you with a seamless and efficient service.
+  <br/>
+  If you have any questions or need assistance, don't hesitate to reach out. We're here to help!
+  </h3>
+
+  <i>Warm regards,</i>
+  <h4>The GIT Bus Card Admin</h4>
+  `;
+
+  await sendEmail(
+    createdStudent.collegeEmail,
+    "Welcome to GIT Bus Card - Registration Successful!",
+    message
+  );
+
   return res
     .status(201)
     .json(

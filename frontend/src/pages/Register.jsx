@@ -7,6 +7,7 @@ import axios from "axios";
 import { toast } from 'react-toastify';
 
 export const Register = () => {
+     const [createAccount, setCreateAccount] = useState(false);
 
      const navigate = useNavigate();
 
@@ -107,7 +108,7 @@ export const Register = () => {
                return;
           }
 
-
+          setCreateAccount(true)
           try {
                const response = await axios.post('http://localhost:3000/api/v1/students/register', formData);
                // console.log(response);
@@ -120,6 +121,8 @@ export const Register = () => {
                } else {
                     toast.error("An error occurred in else error");
                }
+          } finally {
+               setCreateAccount(false);
           }
      };
 
@@ -269,7 +272,7 @@ export const Register = () => {
                               </div>
                          </div>
 
-                         <button className='signUp' type='submit'>Sign Up</button>
+                         <button className='signUp' type='submit'>{createAccount ? "Registering..." : "Sign Up"}</button>
                     </form>
                </div>
           </>

@@ -265,10 +265,11 @@ const nextDueDateSet = asyncHandler(async (req, res) => {
 const deleteStudentById = asyncHandler(async (req, res) => {
   try {
     const id = req.params.id;
-    const deleteStudent = await Student.deleteOne({ _id: id });
-    // console.log("Delete Result:", deleteStudent);
+    const studentDetails = await Student.findById({
+      _id: id,
+    }).select("studentName collegeEmail");
 
-    if (deleteStudent.deletedCount === 0) {
+    if (!studentDetails) {
       return res
         .status(401)
         .json(
@@ -276,9 +277,26 @@ const deleteStudentById = asyncHandler(async (req, res) => {
         );
     }
 
+    const deleteStudent = await Student.deleteOne({ _id: id });
+    const message = `
+    <h2>Dear ${studentDetails.studentName},</h2>
+    
+    <h3>We have successfully deleted your record from our database for the GIT Bus Card. If you have any questions or need assistance, please don't hesitate to reach out. We're here to help!
+    </h3>
+
+    <i>Warm regards,</i>
+    <h4>The GIT Bus Card Admin</h4>
+  `;
+
+    await sendEmail(
+      studentDetails.collegeEmail,
+      "Account Deletion Confirmation - GIT Bus Card",
+      message
+    );
+
     return res
       .status(200)
-      .json(new ApiResponse(200, {}, "Student Deleted Successfully"));
+      .json(new ApiResponse(200, {}, "Student data deleted successfully"));
   } catch (error) {
     // console.log("Error in deleting student:", error);
     throw new ApiError(500, "Something went wrong while deleting student");
@@ -397,17 +415,26 @@ const getAllowStudentUpdateFeatureStatus = asyncHandler(async (req, res) => {
 
 const feeRemainder = asyncHandler(async (req, res) => {
   try {
-    const allStudents = await Student.find().select("collegeEmail nextDueDate");
+    const allStudents = await Student.find().select(
+      "studentName collegeEmail nextDueDate"
+    );
 
     for (const student of allStudents) {
-      const { collegeEmail, nextDueDate } = student;
+      const { studentName, collegeEmail, nextDueDate } = student;
       const message = `
-      <h4>Welcome to Bus Card Management Portal</h4>
-      <h2>You are receiving this email regarding fees to be paid at "${formatDateString(nextDueDate)}".</h2>
-      <i>Thank You!</i>
+      <h2>Dear ${studentName},</h2>
+      
+      <h3>You are receiving this email regarding fees to be paid at "${formatDateString(nextDueDate)}".</h3>
+      
+      <i>Warm regards,</i>
+      <h4>The GIT Bus Card Team</h4>
       `;
 
-      await sendEmail(collegeEmail, "Fee Reminder Notification", message);
+      await sendEmail(
+        collegeEmail,
+        "Welcome to GIT Bus Card - Fee Reminder Notification",
+        message
+      );
     }
 
     return res

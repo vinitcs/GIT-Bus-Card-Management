@@ -36,6 +36,7 @@ export const DashBoard = () => {
      const [search, setSearch] = useState('');
      const [sort, setSort] = useState('');
      const [isSendingReminder, setIsSendingReminder] = useState(false);
+     const [deletingAccount, setDeletingAccount] = useState(false);
 
 
      const dispatch = useDispatch();
@@ -261,7 +262,7 @@ export const DashBoard = () => {
 
 
      const deleteStudent = async (id) => {
-
+          setDeletingAccount(true);
           try {
                // console.log(id);
                const response = await axios.delete(`http://localhost:3000/api/v1/admin/deletestudent/${id}`, { withCredentials: true });
@@ -273,6 +274,8 @@ export const DashBoard = () => {
                } else {
                     toast.error("An error occurred");
                }
+          } finally {
+               setDeletingAccount(false);
           }
      };
 
@@ -503,9 +506,10 @@ export const DashBoard = () => {
                                                             <td>
                                                                  <select
                                                                       name='historyOfPaidFeesDate'
-                                                                      value=""
+                                                                      defaultChecked
                                                                  >
-                                                                      <option value="" disabled>check previous dates</option>
+
+                                                                      <option value="" disabled >check previous dates</option>
                                                                       {currStudent.historyOfPaidFeesDate.slice().reverse().map((data, key) => (
                                                                            <option key={key} value={data} disabled>{data}</option>
                                                                       ))}
@@ -516,7 +520,7 @@ export const DashBoard = () => {
                                                                       <button className={styles.editBtn} onClick={() => handleOpenUpdateCard(currStudent)}>Edit</button>
                                                                  </div>
                                                                  <div>
-                                                                      <button className={styles.deleteBtn} onClick={() => handleDeleteConfirmation(currStudent._id, currStudent.studentName)}>Delete</button>
+                                                                      <button className={styles.deleteBtn} onClick={() => handleDeleteConfirmation(currStudent._id, currStudent.studentName)}>{deletingAccount ? "Deleting..." : "Delete"}</button>
                                                                  </div>
                                                             </td>
                                                        </tr>

@@ -277,7 +277,9 @@
                          height: 2.2rem;
                          border-radius: 0.4rem;
                          padding-left: 0.6rem;
-                         border: 1px solid var(--bg-color);
+                         border: none;
+                         /* border: 0.1px solid var(--grey-color); */
+                         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.10);
                          font-size: 1rem;
                          background-color: var(--tint-color);
                          color: var(--dark-color);
@@ -468,8 +470,10 @@
           .tableContainer {
                .tableHeaderSection {
                     padding: 0.8rem 0.4rem;
+
                     .filterSection {
                          gap: 0.6rem;
+
                          input {
                               width: 50%;
                               font-size: 1rem;
@@ -484,6 +488,7 @@
 
 
                          }
+
                          .clearSortBtn {
                               margin-left: -0.2rem;
                          }

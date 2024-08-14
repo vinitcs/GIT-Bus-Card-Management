@@ -94,9 +94,8 @@ export const StudentCard = () => {
                                              <td>
                                                   <select
                                                        name='historyOfPaidFeesDate'
-                                                       value=""
                                                   >
-                                                       <option value="" disabled>check previous dates</option>
+                                                       <option value="" disabled >check previous dates</option>
                                                        {studentData.historyOfPaidFeesDate.slice().reverse().map((data, key) => (
                                                             <option key={key} value={data} disabled>{data}</option>
                                                        ))}
@@ -105,9 +104,7 @@ export const StudentCard = () => {
                                         </tr>
                                    </tbody>
                               </table>
-                              {/* <div>
-                                   <button className={styles.updateBtn}>Update details</button>
-                              </div> */}
+                              <span className={styles.noteDisplay}>"Stay Updated! Refresh the Tab to Get the Latest Card Info."</span>
 
                          </>
                     ) : (
