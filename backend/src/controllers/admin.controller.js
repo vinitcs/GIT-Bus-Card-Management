@@ -137,7 +137,10 @@ const loginAdmin = asyncHandler(async (req, res) => {
 
   const options = {
     httpOnly: true,
-    secure: true,
+    secure: true, // Ensures the cookie is only sent over HTTPS
+    sameSite: "None", // Allows the cookie to be sent in cross-origin requests
+    maxAge: 24 * 60 * 60 * 1000, // Cookie expiration time
+    path: "/", // Makes the cookie accessible across the entire site
   };
 
   return res
@@ -158,7 +161,9 @@ const loginAdmin = asyncHandler(async (req, res) => {
 const logoutAdmin = asyncHandler(async (req, res) => {
   const options = {
     httpOnly: true,
-    secure: true,
+    secure: true, // Ensures the cookie is only sent over HTTPS
+    sameSite: "None", // Allows the cookie to be sent in cross-origin requests
+    path: "/", // Makes the cookie accessible across the entire site
   };
 
   return res
