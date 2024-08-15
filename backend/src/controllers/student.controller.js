@@ -179,7 +179,10 @@ const loginStudent = asyncHandler(async (req, res) => {
 
   const options = {
     httpOnly: true,
-    secure: true,
+    secure: true, // Ensures the cookie is only sent over HTTPS
+    sameSite: "None", // Allows the cookie to be sent in cross-origin requests
+    maxAge: 24 * 60 * 60 * 1000, // Cookie expiration time
+    path: "/", // Makes the cookie accessible across the entire site
   };
 
   return res
@@ -218,7 +221,7 @@ const forgetPassword = asyncHandler(async (req, res) => {
   await student.save();
 
   // Send token via email
-  const url = `${process.env.FRONTEND_URL}/resetpassword/${resetToken}`;
+  const url = `https://git-bus-card-management.onrender.com/api/v1/students/resetpassword/${resetToken}`;
   const message = `Click on the link to reset your password. ${url}. If you have not request then ignore.`;
 
   await sendEmail(
@@ -285,7 +288,9 @@ const logoutStudent = asyncHandler(async (req, res) => {
 
   const options = {
     httpOnly: true,
-    secure: true,
+    secure: true, // Ensures the cookie is only sent over HTTPS
+    sameSite: "None", // Allows the cookie to be sent in cross-origin requests
+    path: "/", // Makes the cookie accessible across the entire site
   };
 
   return res

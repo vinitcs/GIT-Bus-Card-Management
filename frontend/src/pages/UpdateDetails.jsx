@@ -5,7 +5,6 @@ import styles from "../styles/UpdateDetailsStyles.module.css";
 import { MdCancel } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { BACKEND_URL } from '../../constants/BackendUrl';
 
 
 export const UpdateDetails = () => {
@@ -17,7 +16,7 @@ export const UpdateDetails = () => {
           if (isLoggedIn) {
 
                // Fetch the current student data
-               axios.get(`${BACKEND_URL}/api/v1/students/logged`, { withCredentials: true })
+               axios.get('https://git-bus-card-management.onrender.com/api/v1/students/logged', { withCredentials: true })
                     .then((response) => {
                          const data = response.data.data;
                          setStudentData(data);
@@ -108,7 +107,7 @@ export const UpdateDetails = () => {
           e.preventDefault();
 
           try {
-               const response = await axios.post(`${BACKEND_URL}/api/v1/students/updatedetails`, formData, { withCredentials: true });
+               const response = await axios.post('https://git-bus-card-management.onrender.com/api/v1/students/updatedetails', formData, { withCredentials: true });
                // console.log(response.data);
                toast.success("Data updated successfully");
                navigate('/');

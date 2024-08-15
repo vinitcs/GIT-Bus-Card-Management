@@ -20,7 +20,7 @@ export const Home = () => {
 
      useEffect(() => {
           // Check login status (e.g., check if a token exists)
-          const token = localStorage.getItem('token');
+          // const token = localStorage.getItem('token');
           //   setIsLoggedIn(!!token);
           setIsLoggedIn(isLoggedIn);
 

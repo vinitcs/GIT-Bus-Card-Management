@@ -5,7 +5,6 @@ import { MdCancel } from "react-icons/md";
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { BACKEND_URL } from '../../constants/BackendUrl';
 
 
 export const ResetPassword = () => {
@@ -33,7 +32,7 @@ export const ResetPassword = () => {
      const handleSubmit = async (e) => {
           e.preventDefault();
           try {
-               const response = await axios.put(`${BACKEND_URL}/api/v1/students/resetpassword/${token}`, formData);
+               const response = await axios.put('https://git-bus-card-management.onrender.com/api/v1/students/resetpassword/${token}', formData);
                // console.log(response);
                
                toast.success(response.data.message);

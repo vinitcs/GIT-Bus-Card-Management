@@ -8,7 +8,6 @@ import { logout } from "../../redux/features/studentSlice";
 import axios from "axios";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
-import { BACKEND_URL } from "../../../constants/BackendUrl";
 
 export const Navbar = () => {
      const isLoggedIn = useSelector((state) => state.studentAuth.isLoggedIn);
@@ -24,7 +23,7 @@ export const Navbar = () => {
                if (isLoggedIn) {
 
                     try {
-                         const response = await axios.get(`${BACKEND_URL}/api/v1/students/getallowstudentupdatefeaturestatus`, {
+                         const response = await axios.get('https://git-bus-card-management.onrender.com/api/v1/students/getallowstudentupdatefeaturestatus', {
                               withCredentials: true,
                          });
                          setAllowStudentUpdateDetails(response.data.data.toggleStudentUpdateValue);
@@ -45,7 +44,7 @@ export const Navbar = () => {
           try {
                // Remove token or any login status identifier
 
-               const response = await axios.post(`${BACKEND_URL}/api/v1/students/logout`, {}, { withCredentials: true });
+               const response = await axios.post('https://git-bus-card-management.onrender.com/api/v1/students/logout', {}, { withCredentials: true });
                // console.log(response);
                dispatch(logout());
                toast.success(response.data.message);

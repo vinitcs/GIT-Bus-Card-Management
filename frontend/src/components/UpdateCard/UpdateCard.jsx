@@ -4,8 +4,6 @@ import { MdCancel } from "react-icons/md";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { BACKEND_URL } from "../../../constants/BackendUrl";
-
 
 
 const formatDateString = (dateString) => {
@@ -50,7 +48,7 @@ export const UpdateCard = ({ onClose }) => {
           e.preventDefault();
 
           try {
-               const response = await axios.patch(`${BACKEND_URL}/api/v1/admin/updatesinglestudentbuscarddata/${studentId}`, formData, { withCredentials: true });
+               const response = await axios.patch(`https://git-bus-card-management.onrender.com/api/v1/admin/updatesinglestudentbuscarddata/${studentId}`, formData, { withCredentials: true });
                // console.log(response.data);
                toast.success(`${selectedStudent?.studentName} data updated successfully`);
                onClose();
