@@ -221,12 +221,12 @@ const forgetPassword = asyncHandler(async (req, res) => {
   await student.save();
 
   // Send token via email
-  const url = `https://git-bus-card-management.onrender.com/api/v1/students/resetpassword/${resetToken}`;
+  const url = `https://gitbuscard.netlify.app/api/v1/students/resetpassword/${resetToken}`;
   const message = `Click on the link to reset your password. ${url}. If you have not request then ignore.`;
 
   await sendEmail(
     student.collegeEmail,
-    "GIT Bus Management System Reset Password",
+    "GIT Bus Card - Reset Password!",
     message
   );
   return res
