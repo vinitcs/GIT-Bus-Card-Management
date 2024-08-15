@@ -221,7 +221,7 @@ const forgetPassword = asyncHandler(async (req, res) => {
   await student.save();
 
   // Send token via email
-  const url = `https://gitbuscard.netlify.app/api/v1/students/resetpassword/${resetToken}`;
+  const url = `https://gitbuscard.netlify.app/resetpassword/${resetToken}`;
   const message = `Click on the link to reset your password. ${url}. If you have not request then ignore.`;
 
   await sendEmail(
