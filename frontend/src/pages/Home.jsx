@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from "../styles/HomeStyles.module.css";
 import { PiMouseScroll } from "react-icons/pi";
-import videoBg from "../assets/busvideo1.webm"
+// import videoBg from "../assets/busvideo1.mp4"
 import { Navbar } from "../components/Navbar/Navbar";
 import { Footer } from "../components/Footer/Footer";
 import { StudentCard } from '../components/StudentCard/StudentCard';
@@ -11,7 +11,7 @@ import { BusInfo } from '../components/BusInfo/BusInfo';
 import { useSelector } from 'react-redux';
 
 export const Home = () => {
-     // const videoBg = "https://res.cloudinary.com/dbkvjtoul/video/upload/v1723129230/git-bms/busvideo1.mp4";
+     const videoBg = "https://res.cloudinary.com/dbkvjtoul/video/upload/v1723129230/git-bms/busvideo1.mp4";
 
      let [isLoggedIn, setIsLoggedIn] = useState(false);
 

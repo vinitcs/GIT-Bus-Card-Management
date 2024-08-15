@@ -3,7 +3,6 @@ import college from "../../assets/college.png";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { BACKEND_URL } from "../../constants/BackendUrl";
 
 export const About = () => {
 
@@ -15,7 +14,7 @@ export const About = () => {
 
      const fetchAdminData = async () => {
           try {
-               const response = await axios.get(`${BACKEND_URL}/api/v1/admin/adminaboutusdisaplay`, { withCredentials: true })
+               const response = await axios.get('https://git-bus-card-management.onrender.com/api/v1/admin/adminaboutusdisaplay', { withCredentials: true })
                setAdminData(response.data.data.adminData[0])
           }
           catch (error) {
