@@ -9,6 +9,7 @@ import { About } from '../components/About/About';
 import { BusInfo } from '../components/BusInfo/BusInfo';
 // import { Contact } from '../components/Contact/Contact';
 import { useSelector } from 'react-redux';
+import Typewriter from "typewriter-effect";
 
 export const Home = () => {
      const videoBg = "https://res.cloudinary.com/dbkvjtoul/video/upload/v1723129230/git-bms/busvideo1.mp4";
@@ -37,7 +38,26 @@ export const Home = () => {
                               <h1>Welcome to,</h1>
                               <h2>Gharda Institute of Technology</h2>
                               <h3>Bus Card Management Portal</h3>
-                              <p>"A bus card management portal where students can view their bus card information."</p>
+
+                              <div className={styles.typeWriterSection}>
+                                   <span>A bus card portal</span>
+                                   <Typewriter
+                                        options={{
+                                             strings: [
+                                                  "where students can view their bus card details.",
+                                                  "where students do not need to carry a physical card.",
+                                                  "that provides relief in case of card loss.",
+                                                  "with access to past fee payment dates.",
+                                                  "with timely email alerts for upcoming fees."
+                                             ],
+                                             autoStart: true,
+                                             loop: true,
+                                             deleteSpeed: 70,
+                                             wrapperClassName: styles.head_tags,
+                                             cursorClassName: styles.cursor_tag
+                                        }}
+                                   />
+                              </div>
                          </div>
 
                          <PiMouseScroll className={styles.scrollIcon} size={30} color='white' />

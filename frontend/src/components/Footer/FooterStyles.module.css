@@ -42,7 +42,7 @@ footer {
                user-select: none;
                display: flex;
                align-items: center;
-               font-size: 0.4rem;
+               font-size: 0.8rem;
                margin-top: 0.4rem;
                padding-left: 0;
           }
@@ -52,7 +52,7 @@ footer {
                user-select: none;
                display: flex;
                width: 100%;
-               font-size: 0.4rem;
+               font-size: 0.8rem;
                justify-content: center;
                align-items: center;
                padding-top: 0.2rem;

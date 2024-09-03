@@ -102,14 +102,15 @@
 
                     p {
                          font-size: 1rem;
-                         letter-spacing: 0px;
-                         font-weight: 100;
+                         letter-spacing: 0;
+                         font-weight: 300;
                          text-align: center;
                     }
                     .impInfo {
                          .fields {
                               display: flex;
                               flex-direction: row;
+                              align-content: center;
                               gap: 0.6rem;
 
                               h4 {
@@ -117,11 +118,12 @@
                                    text-wrap: nowrap;
                                    align-self: baseline;
                               }
-
+                              
                               p {
                                    font-size: 1rem;
-                                   letter-spacing: 0px;
-                                   text-align: start;
+                                   font-weight: 600;
+                                   letter-spacing: 0;
+                                   align-self: baseline;
                                    text-wrap: wrap;
                               }
                          }

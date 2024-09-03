@@ -26,7 +26,7 @@
                left: 0;
                width: 100%;
                height: 100%;
-               background-color: rgba(0, 0, 0, 0.96);
+               background-color: rgba(0, 0, 0, 0.9);
                /* background-color: aqua; */
 
           }
@@ -53,6 +53,7 @@
                h1 {
                     color: var(--htag1-color);
                     font-size: 1.8rem;
+                    letter-spacing: 2px;
                }
 
                h2 {
@@ -60,6 +61,7 @@
                     font-size: 4rem;
                     padding-top: 2rem;
                     font-weight: bolder;
+                    letter-spacing: 2px;
                }
 
                h3 {
@@ -68,24 +70,59 @@
                     letter-spacing: 1px;
                }
 
-               p {
-                    color: var(--bg-color);
-                    font-size: 1.5rem;
-                    letter-spacing: 2px;
+
+               .typeWriterSection {
+                    /* background-color: brown; */
+                    width: 100%;
+                    height: max-content;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 0.4rem;
+
+                    span {
+                         color: var(--bg-color);
+                         font-size: 1.4rem;
+                         /* font-weight: 100; */
+                         letter-spacing: 1px;
+                         text-wrap: wrap;
+
+                    }
+
+                    .head_tags {
+                         display: inline-block;
+                         color: var(--htag1-color);
+                         align-self: baseline;
+                         font-size: 1.4rem;
+                         font-weight: 800;
+                         letter-spacing: 2px;
+                    }
+
+                    .cursor_tag {
+                         display: inline;
+                         color: var(--bg-color);
+                         align-self: baseline;
+                         font-size: 1.4rem;
+                    }
                }
+
           }
 
-          .scrollIcon {
-               /* background-color: aquamarine; */
-               width: 100%;
-               height: 2rem;
-               position: absolute;
-               bottom: 3rem;
-          }
 
      }
 
+     .scrollIcon {
+          /* background-color: aquamarine; */
+          width: 100%;
+          height: 2rem;
+          position: absolute;
+          bottom: 3rem;
+     }
+
 }
+
+
 
 @media (width<=480px) {
      .container {
@@ -93,43 +130,60 @@
           .welcomeContainer {
                height: 30rem;
 
+               .overlay {
+                    background-color: rgba(0, 0, 0, 0.6);
+               }
+
                .welcomeDisplay {
                     gap: 0.2rem;
 
 
                     h1 {
                          font-size: 1rem;
+                         letter-spacing: 1px;
                     }
 
                     h2 {
                          font-size: 1.6rem;
                          padding-top: 1rem;
+                         letter-spacing: 1px;
                     }
 
                     h3 {
                          font-size: 1.2rem;
                          letter-spacing: 2px;
+                         font-weight: 800;
                     }
 
-                    p {
-                         padding: 0 4.2rem;
-                         font-size: 0.2px;
-                         text-wrap: wrap;
-                         text-align: center;
+                    .typeWriterSection {
+                         flex-direction: row;
+                         flex-wrap: wrap;
+                         width: 95%;
+
+                         span {
+                              font-size: 0.9rem;
+                              text-wrap: wrap;
+
+                         }
+
+                         .head_tags {
+                              font-size: 0.9rem;
+                              letter-spacing: 1px;
+                              /* position: relative;
+                              top: -0.2px; */
+                              align-self: baseline;
+                              text-align: center;
+                         }
+
+                         .cursor_tag {
+                              font-size: 0.9rem;
+                              /* position: relative;
+                              top: -0.2px; */
+                              
+                         }
                     }
                }
-
-               .scrollIcon {
-                    /* background-color: aquamarine; */
-                    width: 100%;
-                    height: 1.6rem;
-                    position: absolute;
-                    /* justify-content: center; */
-                    bottom: 3rem;
-               }
-
           }
-
      }
 }
 
@@ -140,7 +194,8 @@
                height: 30rem;
 
                .welcomeDisplay {
-                    gap: 0.2rem;
+                    /* background-color: antiquewhite; */
+                    gap: 0.4rem;
 
 
                     h1 {
@@ -156,21 +211,11 @@
                          font-size: 1rem;
                          letter-spacing: 2px;
                     }
-
-                    p {
-                         padding: 0 4.2rem;
-                         font-size: 0.2px;
-                         text-wrap: wrap;
-                         text-align: center;
-                    }
                }
 
                .scrollIcon {
                     /* background-color: aquamarine; */
-                    width: 100%;
                     height: 1.6rem;
-                    position: absolute;
-                    /* justify-content: center; */
                     bottom: 3rem;
                }
 

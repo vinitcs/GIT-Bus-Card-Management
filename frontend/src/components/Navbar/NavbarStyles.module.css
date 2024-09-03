@@ -8,7 +8,7 @@
      justify-content: space-between;
      position: absolute;
      z-index: 1;
-     /* background-color:rgba(248, 246, 246, 0.126);; */
+     /* background-color:rgba(248, 246, 246, 0.126); */
 
 
      .hamburgerMenu,
@@ -50,6 +50,7 @@
                          font-weight: 600;
 
                     }
+
                     a:hover {
                          text-decoration: none;
                          color: var(--btn-color);
@@ -74,6 +75,7 @@
                .adminDashboard a {
                     color: var(--logout-color);
                }
+
                .adminDashboard a:hover {
                     color: var(--logout-color);
                }
@@ -129,16 +131,18 @@
 
 
                a {
-                    font-size: 1.4rem;
+                    margin-top: 0.4rem;
+                    font-size: 2rem;
                     color: var(--btn-color);
                     text-decoration: none;
-
                }
           }
 
           nav {
+               /* display: none; */
                margin-top: 2rem;
-               display: flex;
+               display: block;
+               visibility: hidden;
                max-height: 0;
                opacity: 0;
                transition: max-height 0.12s ease-out, opacity 0.12s ease-out;
@@ -161,11 +165,16 @@
 
                          a {
                               /* font-size: 1rem; */
+                              font-weight: 400;
                               text-decoration: none;
-                              color: var(--btn-color);
+                              color: var(--helper-color);
                               cursor: pointer;
-                              font-weight: 100;
 
+                         }
+
+                         a:hover {
+                              font-weight: 800;
+                              color: var(--btn-color);
                          }
 
                     }
@@ -177,9 +186,7 @@
                     } */
 
 
-                    /* a:hover{
-                         color: var(--bg-color);
-                    } */
+
 
 
                     .adminDashboard a {
@@ -188,12 +195,13 @@
                }
 
                &.showNav {
+                    visibility: visible;
                     max-height: 380px;
                     /* Adjust based on your content's height */
                     opacity: 1;
                     transition: max-height 0.5s ease-in, opacity 0.5s ease-in;
                }
-               
+
           }
      }
 }
