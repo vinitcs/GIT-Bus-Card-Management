@@ -48,7 +48,7 @@ export const UpdateCard = ({ onClose }) => {
           e.preventDefault();
 
           try {
-               const response = await axios.patch(`https://git-bus-card-management.onrender.com/api/v1/admin/updatesinglestudentbuscarddata/${studentId}`, formData, { withCredentials: true });
+               const response = await axios.patch(`https://git-bus-card-management-oapd.onrender.com/api/v1/admin/updatesinglestudentbuscarddata/${studentId}`, formData, { withCredentials: true });
                // console.log(response.data);
                toast.success(`${selectedStudent?.studentName} data updated successfully`);
                onClose();

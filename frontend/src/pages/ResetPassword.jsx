@@ -32,7 +32,7 @@ export const ResetPassword = () => {
      const handleSubmit = async (e) => {
           e.preventDefault();
           try {
-               const response = await axios.put(`https://git-bus-card-management.onrender.com/api/v1/students/resetpassword/${token}`, formData);
+               const response = await axios.put(`https://git-bus-card-management-oapd.onrender.com/api/v1/students/resetpassword/${token}`, formData);
                // console.log(response);
                
                toast.success(response.data.message);

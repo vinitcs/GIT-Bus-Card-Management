@@ -26,7 +26,7 @@ export const StudentCard = () => {
           if (isLoggedIn) {
 
                // Fetch the current student data
-               axios.get('https://git-bus-card-management.onrender.com/api/v1/students/logged', { withCredentials: true })
+               axios.get('https://git-bus-card-management-oapd.onrender.com/api/v1/students/logged', { withCredentials: true })
                     .then((response) => {
                          setStudentData(response.data.data);
                     })

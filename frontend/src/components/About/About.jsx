@@ -14,7 +14,7 @@ export const About = () => {
 
      const fetchAdminData = async () => {
           try {
-               const response = await axios.get('https://git-bus-card-management.onrender.com/api/v1/admin/adminaboutusdisaplay', { withCredentials: true })
+               const response = await axios.get('https://git-bus-card-management-oapd.onrender.com/api/v1/admin/adminaboutusdisaplay', { withCredentials: true })
                setAdminData(response.data.data.adminData[0])
           }
           catch (error) {

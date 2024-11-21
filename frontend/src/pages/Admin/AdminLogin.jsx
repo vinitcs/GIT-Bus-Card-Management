@@ -37,7 +37,7 @@ export const AdminLogin = () => {
           e.preventDefault();
 
           try {
-               const response = await axios.post('https://git-bus-card-management.onrender.com/api/v1/admin/adminlogin', formData, { withCredentials: true });
+               const response = await axios.post('https://git-bus-card-management-oapd.onrender.com/api/v1/admin/adminlogin', formData, { withCredentials: true });
 
                const { admin } = response.data;
 

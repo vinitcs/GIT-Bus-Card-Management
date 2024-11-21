@@ -66,7 +66,7 @@ export const DashBoard = () => {
 
      const fetchAdminData = async () => {
           try {
-               const response = await axios.get('https://git-bus-card-management.onrender.com/api/v1/admin/loggedadmin', { withCredentials: true })
+               const response = await axios.get('https://git-bus-card-management-oapd.onrender.com/api/v1/admin/loggedadmin', { withCredentials: true })
                setAdminData(response.data.data)
           }
           catch (error) {
@@ -77,7 +77,7 @@ export const DashBoard = () => {
 
      const fetchStudentData = async () => {
           try {
-               const response = await axios.get('https://git-bus-card-management.onrender.com/api/v1/admin/listallstudentdata', {
+               const response = await axios.get('https://git-bus-card-management-oapd.onrender.com/api/v1/admin/listallstudentdata', {
                     withCredentials: true
                });
                if (response.data.data.length === 0) {
@@ -97,7 +97,7 @@ export const DashBoard = () => {
 
      const fetchFeatureStatus = async () => {
           try {
-               const response = await axios.get('https://git-bus-card-management.onrender.com/api/v1/admin/getallowstudentupdatefeaturestatus', {
+               const response = await axios.get('https://git-bus-card-management-oapd.onrender.com/api/v1/admin/getallowstudentupdatefeaturestatus', {
                     withCredentials: true,
                });
                setAllowStudentUpdateDetails(response.data.data.toggleStudentUpdateValue);
@@ -157,7 +157,7 @@ export const DashBoard = () => {
           toast.dismiss(idToast);
           try {
                const response = await axios.patch(
-                    'https://git-bus-card-management.onrender.com/api/v1/admin/allowstudentupdatedetails',
+                    'https://git-bus-card-management-oapd.onrender.com/api/v1/admin/allowstudentupdatedetails',
                     { toggleStudentUpdateValue: !allowStudentUpdateDetails },
                     { withCredentials: true }
                );
@@ -183,7 +183,7 @@ export const DashBoard = () => {
           try {
                // Remove token or any login status identifier
 
-               const response = await axios.post('https://git-bus-card-management.onrender.com/api/v1/admin/logoutadmin', {}, { withCredentials: true });
+               const response = await axios.post('https://git-bus-card-management-oapd.onrender.com/api/v1/admin/logoutadmin', {}, { withCredentials: true });
                // console.log(response);
                dispatch(adminLogout());
                toast.success(response.data.message);
@@ -201,7 +201,7 @@ export const DashBoard = () => {
 
      const handleNextDueDate = async () => {
           try {
-               const response = await axios.patch('https://git-bus-card-management.onrender.com/api/v1/admin/nextduedateset', { nextDueDate }, { withCredentials: true });
+               const response = await axios.patch('https://git-bus-card-management-oapd.onrender.com/api/v1/admin/nextduedateset', { nextDueDate }, { withCredentials: true });
                toast.success(response.data.message);
                setNextDueDate('');
                fetchStudentData();
@@ -265,7 +265,7 @@ export const DashBoard = () => {
           setDeletingAccount(true);
           try {
                // console.log(id);
-               const response = await axios.delete(`https://git-bus-card-management.onrender.com/api/v1/admin/deletestudent/${id}`, { withCredentials: true });
+               const response = await axios.delete(`https://git-bus-card-management-oapd.onrender.com/api/v1/admin/deletestudent/${id}`, { withCredentials: true });
                toast.success(response.data.message);
                fetchStudentData();
           } catch (error) {
@@ -328,7 +328,7 @@ export const DashBoard = () => {
           setIsSendingReminder(true);
           try {
                // console.log(id);
-               const response = await axios.post('https://git-bus-card-management.onrender.com/api/v1/admin/feeremainder', {}, { withCredentials: true });
+               const response = await axios.post('https://git-bus-card-management-oapd.onrender.com/api/v1/admin/feeremainder', {}, { withCredentials: true });
                toast.success(response.data.message);
           } catch (error) {
                if (error.response && error.response.data) {
