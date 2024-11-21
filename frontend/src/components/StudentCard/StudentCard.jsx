@@ -4,7 +4,6 @@ import styles from './StudentCardStyles.module.css';
 import { Loading } from '../Loading/Loading';
 import { useSelector } from 'react-redux';
 
-
 const formatDateString = (dateString) => {
      if (!dateString) {
           return '';
@@ -26,7 +25,7 @@ export const StudentCard = () => {
           if (isLoggedIn) {
 
                // Fetch the current student data
-               axios.get('https://git-bus-card-management-oapd.onrender.com/api/v1/students/logged', { withCredentials: true })
+               axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/students/logged`, { withCredentials: true })
                     .then((response) => {
                          setStudentData(response.data.data);
                     })

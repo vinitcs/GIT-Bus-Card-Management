@@ -25,7 +25,7 @@ export const ForgetPassword = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://git-bus-card-management-oapd.onrender.com/api/v1/students/forgetpassword', formData);
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/students/forgetpassword`, formData);
       // console.log(response);
 
       toast.success(response.data.message);

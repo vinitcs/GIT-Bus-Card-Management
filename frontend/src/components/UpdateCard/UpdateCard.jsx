@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-
 const formatDateString = (dateString) => {
      if (!dateString) {
           return '';
@@ -48,7 +47,7 @@ export const UpdateCard = ({ onClose }) => {
           e.preventDefault();
 
           try {
-               const response = await axios.patch(`https://git-bus-card-management-oapd.onrender.com/api/v1/admin/updatesinglestudentbuscarddata/${studentId}`, formData, { withCredentials: true });
+               const response = await axios.patch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/admin/updatesinglestudentbuscarddata/${studentId}`, formData, { withCredentials: true });
                // console.log(response.data);
                toast.success(`${selectedStudent?.studentName} data updated successfully`);
                onClose();

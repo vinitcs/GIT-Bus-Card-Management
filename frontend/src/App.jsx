@@ -27,7 +27,7 @@ function App() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const studentResponse = await axios.post('https://git-bus-card-management-oapd.onrender.com/api/v1/students/verify-token', {}, { withCredentials: true });
+        const studentResponse = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/students/verify-token`, {}, { withCredentials: true });
         // console.log(studentResponse);
         const { student } = studentResponse.data;
         dispatch(studentExist(student));
@@ -38,7 +38,7 @@ function App() {
 
 
       try {
-        const adminResponse = await axios.post('https://git-bus-card-management-oapd.onrender.com/api/v1/admin/verifyadmintoken', {}, { withCredentials: true });
+        const adminResponse = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/admin/verifyadmintoken`, {}, { withCredentials: true });
         const { admin } = adminResponse.data;
         dispatch(adminExist(admin))
       } catch (error) {
